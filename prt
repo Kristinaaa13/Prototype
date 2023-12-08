@@ -1,0 +1,24 @@
+from copy import deepcopy
+
+# Абстрактний клас для прототипу
+class Prototype:
+    def clone(self):
+        pass
+
+# Конкретна реалізація прототипу
+class ConcretePrototype(Prototype):
+    def __init__(self, data):
+        self.data = data
+
+    def clone(self):
+        # Використовуємо глибоке копіювання для створення копії об'єкта
+        return deepcopy(self)
+
+# Клієнтський код
+prototype = ConcretePrototype("Initial Data")
+clone1 = prototype.clone()
+clone2 = prototype.clone()
+
+print("Original:", prototype.data)
+print("Clone 1:", clone1.data)
+print("Clone 2:", clone2.data)
